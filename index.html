@@ -14,33 +14,41 @@
         }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--pink-bg); color: var(--text-dark); text-align: center; overflow-x: hidden; }
         
-        /* ORO METÁLICO DELICADO - ALTO CONTRASTE */
+        /* ORO METÁLICO CLARO CON REFLEJOS DIAGONALES */
         .texto-dorado {
             font-family: 'Great Vibes', cursive !important;
-            font-size: 4.5rem;
+            font-size: 3.15rem;
             text-align: center;
             margin: 0;
-            line-height: 1.2;
+            line-height: 1.15;
             display: inline-block;
-            font-weight: 400; /* Delgadez intencional */
+            padding: 0 28px 10px 28px;
+            font-weight: 400;
 
-            /* Ajuste de color para evitar el "mostaza oscuro" */
+            /* Dorado luminoso con vetas diagonales tipo reflejo metálico */
             background: linear-gradient(
-                to bottom,
-                #E8C678 0%,    /* Oro claro (borde superior brillante) */
-                #FFFFFF 35%,   /* HIGHLIGHT BLANCO (Más ancho para destacar) */
-                #D4AF37 55%,   /* Oro clásico */
-                #8A5A19 80%,   /* Sombra profunda para dar volumen */
-                #FCEABB 100%   /* Reflejo de luz en la base */
+                135deg,
+                #8a6418 0%,
+                #c79b32 12%,
+                #fff6bf 24%,
+                #f7df84 34%,
+                #b88724 47%,
+                #fff8cf 60%,
+                #e3bd55 72%,
+                #9a6d1d 86%,
+                #f8e7a2 100%
             );
+            background-size: 170% 170%;
             
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent; 
+            color: transparent;
+            -webkit-text-fill-color: transparent;
 
-            /* Sombra y Relieve: Optimizado para fondos oscuros */
-            filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.6)) /* Sombra fuerte para despegar */
-                    drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.5)); /* Micro-relieve de luz */
+            /* Relieve limpio para que se lea sobre fondos claros y oscuros */
+            -webkit-text-stroke: 0.25px rgba(120, 80, 15, 0.35);
+            filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.45))
+                    drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.45));
         }
 
         /* Hero Section */
@@ -55,9 +63,19 @@
             padding-bottom: 60px;
             background-position: center 20%;
         }
-        .hero h1 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 0; font-weight: 400; color: white; }
+        .hero h1 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 8px; margin-bottom: 18px; margin-top: 0; font-weight: 400; color: white; position: relative; z-index: 3; }
         
-        .card { background: white; margin: 25px auto; padding: 35px 25px; border-radius: 30px; max-width: 500px; width: 85%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card {
+            background: white;
+            margin: 25px auto;
+            padding: 35px 25px;
+            border-radius: 30px;
+            max-width: 500px;
+            width: calc(100% - 36px);
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1.5px solid rgba(212,175,55,0.45);
+        }
         
         /* Carrusel Cuadrado */
         .carousel-container { position: relative; width: 100%; max-width: 400px; margin: 0 auto; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -83,7 +101,7 @@
 
     <div class="hero">
         <h1>Mis 15 años</h1>
-        <h2 class="texto-dorado" style="font-size: 6rem; margin-bottom: 10px; margin-top: -10px;">Lourdes</h2>
+        <h2 class="texto-dorado" style="font-size: 4.2rem; margin-bottom: 10px; margin-top: 0;">Lourdes</h2>
         <p style="font-style: italic; max-width: 280px; margin-bottom: 25px; font-weight: 400; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">"Esa noche será para mí mágica, inolvidable y única."</p>
         <button onclick="playMusic()" class="btn" id="btnMusica" style="width: auto; padding: 12px 25px;">REPRODUCIR MÚSICA <i class="fa-solid fa-play" style="margin-left:8px;"></i></button>
     </div>
@@ -104,14 +122,14 @@
         <p style="margin-top: -5px;">Sábado 4 de Julio - 21:30 hs</p>
         <p><strong>Hotel Carlos V</strong></p>
         <p style="font-size: 0.85rem; color: #888; margin-bottom: 25px;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Carlos+V,+25+de+Mayo+330,+San+Miguel+de+Tucuman" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Carlos%20V%2C%2025%20de%20Mayo%20330%2C%20San%20Miguel%20de%20Tucuman%2C%20Argentina&travelmode=driving" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
         <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
     <div class="card" style="padding: 15px;">
         <div class="carousel-container">
             <div class="carousel-slide" id="carouselSlide">
-                <img src="1.jpeg" alt="1">
+                <img src="1.jpg" alt="1">
                 <img src="1-1.jpg" alt="1-1">
                 <img src="2.jpg" alt="2">
                 <img src="3.jpg" alt="3">
@@ -139,7 +157,41 @@
             <strong style="color: var(--pink-btn);">evitando los tonos Rosa y Dorado</strong>.
         </p>
     </div>
+<div class="card">
+    <h2 class="texto-dorado">Regalos</h2>
+    
+    <p style="font-size: 0.95rem; line-height: 1.7; color: #555; margin-top: 5px;">
+        Si deseas regalarme algo más que tu hermosa presencia...
+    </p>
 
+    <div style="
+        background: #fff5f8;
+        border-radius: 18px;
+        padding: 18px;
+        margin-top: 20px;
+        border: 1px solid rgba(212,175,55,0.35);
+    ">
+        <p style="
+            margin:0;
+            font-size:0.85rem;
+            letter-spacing:2px;
+            color:#999;
+            text-transform:uppercase;
+        ">
+            Alias
+        </p>
+
+        <p style="
+            margin:10px 0 0 0;
+            font-size:1.3rem;
+            font-weight:700;
+            color:var(--pink-btn);
+            letter-spacing:1px;
+        ">
+            lour.obeide
+        </p>
+    </div>
+</div>
     <div class="card">
         <h2 class="texto-dorado">Música</h2>
         <p style="margin-bottom: 20px; margin-top: 5px;">¿Qué canción no puede faltar?</p>
@@ -149,7 +201,7 @@
         </div>
     </div>
 
-    <div class="card" style="border: 2px dashed var(--pink-btn); background: #fffafb;">
+    <div class="card" style="background: #fffafb;">
         <i class="fa-solid fa-camera-retro fa-2x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
         <h2 class="texto-dorado">Nuestras Fotos</h2>
         <p style="margin-bottom: 20px; font-size: 0.95rem; margin-top: 5px;">¡Subí aquí todas las fotos que saques durante la fiesta!</p>
